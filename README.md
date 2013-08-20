@@ -1,17 +1,17 @@
 spec_ptp2ntpd
 ========
 
-Experimental White Rabbit SPEC PTP to NTP shared memory reflock driver.
+Experimental White Rabbit SPEC PTP to NTP shared memory refclock driver.
 
-Reads WR-time from SPEC shared memory and transfers it to NTP shared memory for use with the NTP shm reflock driver.
+Reads WR-time from SPEC shared memory and transfers it to NTP shared memory for use with the NTP shm refclock driver.
 
 To build: place get-time.c and spec_ptp2ntpd.c in spec-sw/tools/ and add them to the Makefile.
 
 usage
 ========
-Add line similar to these to /etc/ntp.conf
+Add a line similar to this to /etc/ntp.conf
 
-    # experimental reflock
+    # experimental refclock
     server 127.127.28.0 minpoll 4 maxpoll 4
 
 Resart ntp
