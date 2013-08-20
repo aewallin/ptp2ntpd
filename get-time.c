@@ -20,7 +20,7 @@
 
 uint32_t read_mem(void *base, uint32_t offset) {
     uint32_t *ptr;
-    ptr = base + 0x20300 + offset;	
+    ptr = base + 0x20300 + offset;
     return  *ptr;
 }
 
@@ -38,11 +38,14 @@ int main(int argc, char **argv)
             "the driver is loaded and you run the program as root.\n");
         exit(1);
     }
+    fprintf(stdout,"Found SPEC at %x \n",(uint)card);
     map_base = spec_get_base(card, bar);
     if(!map_base || map_base == (void *) -1) {
         fprintf(stderr, "%s: mmap(/dev/mem): %s\n", argv[0], strerror(errno));
         exit(1);
     }
+    fprintf(stdout,"map_base = %x \n",(uint)map_base);
+    
     uint32_t nsec, s_lsb, s_msb;
     nsec = read_mem(map_base, 4 ); // read nanoseconds, in number of 62.5MHz ref cycles
     double cycle = 1/125e6;
