@@ -22,9 +22,19 @@ Start the daemon
 
     sudo ./spec_ptp2ntpd
    
-See if it's working
+See what is going on
 
     watch ntpq -np
+
+if it's working, you should see something along the lines of:
+
+        remote           refid      st t when poll reach   delay   offset  jitter
+    ==============================================================================
+    *127.127.28.0    .SHM.            0 l   10   16  377    0.000    0.001   0.001
+    +194.100.49.132  194.100.49.134   2 u   27   64  241    0.279    0.003   0.066
+     194.100.49.134  194.100.49.134   2 u  966 1024    1    0.282    0.010   0.000
+
+here the first line is the refclock. 
 
 References
 ==========
